@@ -1,0 +1,34 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+App	App.js	/^export default function App() {$/;"	f
+Async	App.js	/^        startAsync={fetchFonts}$/;"	c
+CategoriesScreen	screens/CategoriesScreen.js	/^const CategoriesScreen = () => {$/;"	c
+CategoryMealsScreen	screens/CategoryMealsScreen.js	/^const CategoryMealsScreen = () => {$/;"	c
+FavoritesScreen	screens/FavoritesScreen.js	/^const FavoritesScreen = () => {$/;"	c
+FiltersScreen	screens/FiltersScreen.js	/^const FiltersScreen = () => {$/;"	c
+Finish	App.js	/^        onFinish={() => setFontLoaded(true)}$/;"	c
+Fonts	App.js	/^const fetchFonts = () => {$/;"	c
+MealDetailScreen	screens/MealDetailScreen.js	/^const MealDetailScreen = () => {$/;"	c
+PropTypes	screens/CategoriesScreen.js	/^CategoriesScreen.PropTypes = {$/;"	c
+PropTypes	screens/CategoriesScreen.js	/^CategoriesScreen.PropTypes = {$/;"	o
+PropTypes	screens/CategoryMealsScreen.js	/^CategoryMealsScreen.PropTypes = {$/;"	c
+PropTypes	screens/CategoryMealsScreen.js	/^CategoryMealsScreen.PropTypes = {$/;"	o
+PropTypes	screens/FavoritesScreen.js	/^FavoritesScreen.PropTypes = {$/;"	c
+PropTypes	screens/FavoritesScreen.js	/^FavoritesScreen.PropTypes = {$/;"	o
+PropTypes	screens/FiltersScreen.js	/^FiltersScreen.PropTypes = {$/;"	c
+PropTypes	screens/FiltersScreen.js	/^FiltersScreen.PropTypes = {$/;"	o
+PropTypes	screens/MealDetailScreen.js	/^MealDetailScreen.PropTypes = {$/;"	c
+PropTypes	screens/MealDetailScreen.js	/^MealDetailScreen.PropTypes = {$/;"	o
+container	App.js	/^  container: {$/;"	o
+exports	babel.config.js	/^module.exports = function(api) {$/;"	f
+function	babel.config.js	/^module.exports = function(api) {$/;"	f
+if	App.js	/^  if (!fontLoaded) {$/;"	f
+screen	screens/CategoriesScreen.js	/^  screen: {$/;"	o
+screen	screens/CategoryMealsScreen.js	/^  screen: {$/;"	o
+screen	screens/FavoritesScreen.js	/^  screen: {$/;"	o
+screen	screens/FiltersScreen.js	/^  screen: {$/;"	o
+screen	screens/MealDetailScreen.js	/^  screen: {$/;"	o
