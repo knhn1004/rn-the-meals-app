@@ -1,15 +1,36 @@
-import { HeaderButtons, Item } from 'react-navigation-header-buttons'
-import React from 'react'
+import React, { useEffect, useCallback } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 import { View, Text, StyleSheet, Button, ScrollView, Image } from 'react-native'
-import { MEALS } from '../data/dummy-data'
+import { HeaderButtons, Item } from 'react-navigation-header-buttons'
 import HeaderButton from '../components/HeaderButton'
 import DefaultText from '../components/DefaultText'
 import MealDetailListItem from './MealDetailListItem'
+import { toggleFavorite } from '../store/actions/meals'
 
 const MealDetailScreen = props => {
+  const availableMeals = useSelector(state => state.meals.meals)
   const mealId = props.navigation.getParam('mealId')
-  const selectedMeal = MEALS.find(meal => meal.id === mealId)
+  const isFav = useSelector(state =>
+    state.meals.favoriteMeals.some(meal => meal.id === mealId),
+  )
+  const selectedMeal = availableMeals.find(meal => meal.id === mealId)
+
+  const dispatch = useDispatch()
+
+  const toggleFavoriteHandler = useCallback(() => {
+    dispatch(toggleFavorite(mealId))
+  }, [dispatch, mealId])
+
+  useEffect(() => {
+    props.navigation.setParams({ toggleFav: toggleFavoriteHandler })
+  }, [toggleFavoriteHandler])
+
+  // updating inside of the detail page
+  useEffect(() => {
+    props.navigation.setParams({ isFav })
+  }, [isFav])
+
   return (
     <ScrollView>
       <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} />
@@ -32,23 +53,23 @@ const MealDetailScreen = props => {
   )
 }
 
-MealDetailScreen.navigationOptions = navigationData => {
-  const mealId = navigationData.navigation.getParam('mealId')
-  const selectedMeal = MEALS.find(meal => meal.id === mealId)
+MealDetailScreen.navigationOptions = navData => {
+  const mealTitle = navData.navigation.getParam('mealTitle')
+  const toggleFavorite = navData.navigation.getParam('toggleFav')
+  const isFav = navData.navigation.getParam('isFav')
+
   const headerRight = () => (
     <HeaderButtons HeaderButtonComponent={HeaderButton}>
       <Item
         title="Favorite"
-        iconName="ios-star"
-        onPress={() => {
-          console.log('Marked as favorite!')
-        }}
+        iconName={isFav ? 'ios-star' : 'ios-star-outline'}
+        onPress={toggleFavorite}
       />
     </HeaderButtons>
   )
 
   return {
-    headerTitle: selectedMeal.title,
+    headerTitle: mealTitle,
     headerRight,
   }
 }
