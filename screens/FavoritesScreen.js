@@ -1,26 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { View, Text, StyleSheet } from 'react-native'
+import { Platform } from 'react-native'
+import Colors from '../constants/Colors'
+import MealList from '../components/MealList'
+import { MEALS } from '../data/dummy-data'
+import NavHamburger from '../navigation/NavHamburger'
 
-
-const FavoritesScreen = () => {
-  return (
-    <View style={styles.screen}>
-      <Text>Favorite Screen</Text>
-    </View>
-  )
+const FavoritesScreen = ({ navigation }) => {
+  const favMeals = MEALS.filter(meal => meal.id === 'm1' || meal.id === 'm2')
+  return <MealList listData={favMeals} navigation={navigation} />
 }
 
-const styles = StyleSheet.create({
-  screen: {
-  flex: 1,
-  justifyContent: 'center',
-  alignItems: 'center'
-  }
+FavoritesScreen.navigationOptions = navData => ({
+  headerTitle: 'Your Favorites',
+  // headerStyle: {
+  // backgroundColor: Platform.OS === 'android' ? Colors.accentColor : '',
+  // },
+  // eslint-disable-next-line
+  headerLeft: () => <NavHamburger navData={navData} />,
 })
 
 export default FavoritesScreen
 
-FavoritesScreen.PropTypes = {
-
-}
+FavoritesScreen.propTypes = {}
